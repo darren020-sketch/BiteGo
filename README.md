@@ -1,177 +1,114 @@
-# 🌱 iSosial — Sistem Manajemen Relawan Sekolah
+# 🍽️ BiteGo
 
-iSosial adalah aplikasi berbasis web yang dikembangkan untuk membantu sekolah dalam mengelola kegiatan sosial dan relawan secara terstruktur, efisien, dan transparan.
+> **Segar. Cepat. Lezat.**  
+> Platform Pre-Order & Pemesanan Makanan Kantin Sekolah Modern — Bebas Antre.
 
-Proyek ini dibuat oleh **Kelompok 9** dari **SMK Kristen Immanuel Pontianak**.
+## 📌 Tentang BiteGo
 
----
+**BiteGo** adalah platform pemesanan makanan berbasis web yang dirancang khusus untuk lingkungan kantin sekolah.
 
-## 📖 Latar Belakang
+BiteGo memungkinkan siswa melakukan **pre-order makanan dari dalam kelas sebelum jam istirahat**, memilih jadwal pengambilan, lalu mengambil pesanan melalui **Express Pickup** tanpa perlu mengantre panjang.
 
-Sekolah secara rutin menyelenggarakan berbagai kegiatan sosial seperti bakti sosial, kerja bakti, penggalangan dana, dan program kemanusiaan. Namun, proses pendataan relawan masih dilakukan secara manual sehingga sering terjadi:
+BiteGo hadir sebagai solusi untuk mengatasi antrean kantin, keterbatasan waktu istirahat, penjual yang kewalahan, serta ketidakpastian ketersediaan menu.
 
-- Kesalahan pencatatan dan kehilangan data
-- Kesulitan dalam pengelolaan informasi kegiatan
-- Penyampaian informasi yang tidak merata kepada siswa
-- Tidak adanya sistem penyimpanan riwayat keterlibatan siswa
+## 🎯 Tujuan
 
-Kondisi ini menyulitkan pihak sekolah dalam melakukan **monitoring**, **evaluasi**, dan **pelaporan partisipasi siswa**, serta menurunkan transparansi informasi bagi siswa dan orang tua.
-
----
-
-## 🎯 Tujuan Aplikasi
-
-Aplikasi **iSosial** dikembangkan untuk:
-
-1. Mendukung operasional kegiatan sosial
-2. Memberikan edukasi dan pembinaan
-3. Memfasilitasi penggalangan dana dan sumber daya
-4. Memberikan dukungan emosional dan sosial
-5. Membangun relasi dan jejaring sosial
-
----
+- ⏱️ **Efisiensi waktu** — memangkas waktu tunggu siswa dari sekitar 15 menit menjadi kurang dari 2 menit melalui sistem pre-order.
+- 🍳 **Penyiapan makanan lebih teratur** — membantu pedagang memperkirakan jumlah porsi berdasarkan pesanan yang masuk.
+- 🏫 **Digitalisasi sekolah** — mendukung terciptanya ekosistem **Smart Canteen** yang modern, tertib, higienis, dan ramah pengguna.
 
 ## 👥 Target Pengguna
 
-| Peran | Deskripsi |
-|-------|-----------|
-| **Manajemen Sekolah** | Menggunakan data dan laporan untuk evaluasi serta perencanaan kegiatan sosial. |
-| **Guru Pembina / Koordinator** | Mengatur pelaksanaan kegiatan, menentukan kebutuhan relawan, dan memantau kontribusi siswa. |
-| **Administrator / Staf Kesiswaan** | Mengelola data kegiatan, memverifikasi pendaftaran relawan, dan menyusun laporan partisipasi. |
-| **Siswa (Relawan)** | Mengakses informasi kegiatan, mendaftar secara daring, dan melihat riwayat keterlibatan sosial. |
+### 👨‍🎓 Siswa & Guru
 
----
+Dapat memesan makanan lebih awal dari kelas dan mengambilnya saat jam istirahat tanpa harus mengantre.
 
-## 💡 Solusi yang Ditawarkan
+### 🧑‍🍳 Pengelola Stand Kantin
 
-Sebagai solusi atas permasalahan pengelolaan kegiatan sosial di sekolah, **iSosial** hadir dengan fitur-fitur utama berikut:
+Mendapatkan rekap pesanan lebih awal sehingga persiapan makanan dan jumlah porsi dapat dilakukan dengan lebih teratur.
 
-- Pencarian aktivitas sosial
-- Informasi detail kegiatan (tanggal, lokasi, kuota relawan)
-- Pendaftaran relawan secara daring
-- Manajemen kegiatan oleh admin
-- Riwayat keterlibatan dan kegiatan selesai
-- Statistik dan pelaporan partisipasi di dashboard
+### 🏫 Pihak Sekolah
 
----
+Mendukung lingkungan kantin yang lebih tertib, bersih, tidak berdesakan, dan memanfaatkan teknologi modern.
 
-## 🛠️ Teknologi yang Digunakan
+## ✨ Fitur Utama
 
-| Komponen | Teknologi |
-|----------|-----------|
-| **Frontend** | HTML, CSS, JavaScript |
-| **Backend** | PHP (MVC custom, PSR-4 autoload) |
-| **Database** | MySQL |
-| **Server** | Apache/Nginx + PHP (XAMPP / local server) |
+### 🏪 Katalog Stand Kantin Digital
 
----
+Menampilkan daftar penjual, menu harian, harga, serta ketersediaan stok makanan secara transparan.
 
-## 🧩 Struktur Halaman
+### 🕐 Pre-Order Jam Istirahat
 
-| No | Halaman | Route / Akses |
-|----|---------|----------------|
-| 1 | Home Page — daftar kegiatan sosial | `/` |
-| 2 | Tentang — visi, misi, dan fitur aplikasi | `/about` |
-| 3 | Login & Register | `/login`, `/register` |
-| 4 | Dashboard — statistik kegiatan dan relawan | `/dashboard` |
-| 5 | Manajemen Kegiatan | `/dashboard/kegiatan` |
-| 6 | Pendaftaran Relawan (detail kegiatan) | `/daftar-relawan?id={id}` |
-| 7 | Riwayat Kegiatan | `/dashboard/riwayat` |
-| 8 | Manajemen Relawan / Pengguna | `/dashboard/relawan`, `/dashboard/admin/users` |
+Siswa dapat memilih jadwal pengambilan pesanan:
 
----
+- Istirahat I
+- Istirahat II
 
-## Struktur Proyek
+### 🔢 PIN / Kode Unik Pengambilan
 
-```
-isosial-main/
-├── database/
-│   ├── isosial_db.sql          # Dump database (kegiatan, users, relawan)
-├── public/
-│   ├── index.php               # Entry point aplikasi
-│   ├── css/
-│   └── assets/
-├── src/
-│   ├── Config/                 # Koneksi database
-│   ├── Controllers/
-│   ├── Models/
-│   ├── Routes/
-│   └── Views/
-└── vendor/                     # Composer autoload
-```
+Setiap pesanan mendapatkan **kode unik 4 digit**. Siswa cukup menunjukkan atau menyebutkan kode tersebut kepada penjual untuk mengambil pesanan.
 
----
+### 📊 Dashboard Penjual Kantin
 
-## Instalasi & Menjalankan
+Penjual dapat memantau pesanan secara real-time dengan status:
 
-### Prasyarat
+`Menunggu → Dimasak → Siap Ambil`
 
-- PHP 8.x
-- MySQL / MariaDB
-- Composer
-- Web server (XAMPP direkomendasikan)
+### ⚡ Express Pickup
 
-### Langkah
+Pesanan yang sudah siap dapat langsung diambil melalui konter **Express Pickup**, sehingga siswa tidak perlu mengantre seperti pada proses pembelian biasa.
 
-1. **Clone atau salin** proyek ke folder web server (mis. `htdocs/isosial-main`).
+## 🔄 Alur Pemesanan
 
-2. **Install dependensi Composer:**
-   ```bash
-   composer install
-   ```
+```text
+Pilih Stand Kantin
+       ↓
+Pilih Menu & Jam Ambil
+       ↓
+Konfirmasi Pesanan
+       ↓
+Dapatkan Kode Unik 4 Digit
+       ↓
+Pesanan Diproses Penjual
+       ↓
+Status: Siap Ambil
+       ↓
+Express Pickup
 
-3. **Buat database** `isosial_db` di phpMyAdmin.
+🎨 Konsep UI/UX
 
-4. **Import database:**
-   - Import file `database/isosial_db.sql`
-   - Opsional: jalankan `database/seed_relawan_kegiatan.sql` untuk data contoh relawan per kegiatan
+BiteGo menggunakan konsep antarmuka yang modern, sederhana, dan cocok untuk lingkungan sekolah.
 
-5. **Sesuaikan koneksi database** di `src/Config/Database.php` jika perlu:
-   ```php
-   $host = 'localhost';
-   $username = 'root';
-   $password = '';
-   $database = 'isosial_db';
-   ```
+🌱 Fresh Mint — memberikan kesan segar dan ramah.
+☀️ Sunlight Yellow — memberikan kesan cerah dan energik.
+📱 Responsive Design — nyaman digunakan melalui perangkat siswa.
+3️⃣ Three-Step Ordering — proses pemesanan dibuat sederhana.
+🔄 Real-Time Order Status — siswa dapat melihat perkembangan pesanan.
+Alur Singkat
 
-6. **Arahkan document root** ke folder `public/`, atau akses:
-   ```
-   http://localhost/isosial-main/public/
-   ```
+Pilih Stand → Pilih Menu & Jam Ambil → Dapatkan Kode Pengambilan
 
-7. **Login admin** (sesuai data di `isosial_users` setelah import SQL).
+🛠️ Teknologi yang Digunakan
+Teknologi	Fungsi
+Laravel 13	Backend, logika bisnis, transaksi pre-order, dan RESTful API
+Tailwind CSS	Styling dan pembuatan UI yang responsif
+MySQL	Penyimpanan data relasional
+GitHub	Version control dan kolaborasi pengembangan
+🗄️ Data yang Dikelola
 
----
+Sistem menggunakan database relasional untuk menyimpan:
 
-## Database
-
-| Tabel | Fungsi |
-|-------|--------|
-| `isosial_kegiatan` | Data kegiatan sosial (nama, lokasi, tanggal, gambar, kuota relawan) |
-| `isosial_users` | Akun admin dan relawan (siswa) |
-| `isosial_relawan_kegiatan` | Relasi pendaftaran relawan per kegiatan |
-
----
-
-## 👨‍💻 Tim Pengembang
-
-**Kelompok 9 — SMK Kristen Immanuel Pontianak**
-
-- Bryan Geraldo Lim
-- Oliver Marvel Jonathan
-- Luis Fabian Lorenso
-
----
-
-## 📍 Informasi Sekolah
-
-**SMK Kristen Immanuel**  
-Jl. Letnan Jendral Sutoyo, Parit Tokaya, Kec. Pontianak Sel., Kota Pontianak, Kalimantan Barat 78121  
-
-📞 +62 898 8890 298
-
----
-
-## 🌟 Motto
-
-> *Ubah niat baik jadi aksi baik hari ini.*
+Pengguna
+Stand kantin
+Menu makanan
+Ketersediaan stok
+Pesanan
+Transaksi
+Status pesanan
+Kode unik pengambilan
+👨‍💻 Tim Pengembang — TechBite
+Nama	Peran
+Bryan Geraldo	Project Leader & Backend
+Darren Bagus	Frontend Developer
+Luis Fabian	UI/UX Designer
+Oliver Marvel	UI/UX Designer
