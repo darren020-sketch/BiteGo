@@ -1,62 +1,177 @@
-<<<<<<< HEAD
-# BiteGo
-=======
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🌱 iSosial — Sistem Manajemen Relawan Sekolah
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+iSosial adalah aplikasi berbasis web yang dikembangkan untuk membantu sekolah dalam mengelola kegiatan sosial dan relawan secara terstruktur, efisien, dan transparan.
 
-## About Laravel
+Proyek ini dibuat oleh **Kelompok 9** dari **SMK Kristen Immanuel Pontianak**.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📖 Latar Belakang
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Sekolah secara rutin menyelenggarakan berbagai kegiatan sosial seperti bakti sosial, kerja bakti, penggalangan dana, dan program kemanusiaan. Namun, proses pendataan relawan masih dilakukan secara manual sehingga sering terjadi:
 
-## Learning Laravel
+- Kesalahan pencatatan dan kehilangan data
+- Kesulitan dalam pengelolaan informasi kegiatan
+- Penyampaian informasi yang tidak merata kepada siswa
+- Tidak adanya sistem penyimpanan riwayat keterlibatan siswa
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Kondisi ini menyulitkan pihak sekolah dalam melakukan **monitoring**, **evaluasi**, dan **pelaporan partisipasi siswa**, serta menurunkan transparansi informasi bagi siswa dan orang tua.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## 🎯 Tujuan Aplikasi
 
-## Agentic Development
+Aplikasi **iSosial** dikembangkan untuk:
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+1. Mendukung operasional kegiatan sosial
+2. Memberikan edukasi dan pembinaan
+3. Memfasilitasi penggalangan dana dan sumber daya
+4. Memberikan dukungan emosional dan sosial
+5. Membangun relasi dan jejaring sosial
 
-```bash
-composer require laravel/boost --dev
+---
 
-php artisan boost:install
+## 👥 Target Pengguna
+
+| Peran | Deskripsi |
+|-------|-----------|
+| **Manajemen Sekolah** | Menggunakan data dan laporan untuk evaluasi serta perencanaan kegiatan sosial. |
+| **Guru Pembina / Koordinator** | Mengatur pelaksanaan kegiatan, menentukan kebutuhan relawan, dan memantau kontribusi siswa. |
+| **Administrator / Staf Kesiswaan** | Mengelola data kegiatan, memverifikasi pendaftaran relawan, dan menyusun laporan partisipasi. |
+| **Siswa (Relawan)** | Mengakses informasi kegiatan, mendaftar secara daring, dan melihat riwayat keterlibatan sosial. |
+
+---
+
+## 💡 Solusi yang Ditawarkan
+
+Sebagai solusi atas permasalahan pengelolaan kegiatan sosial di sekolah, **iSosial** hadir dengan fitur-fitur utama berikut:
+
+- Pencarian aktivitas sosial
+- Informasi detail kegiatan (tanggal, lokasi, kuota relawan)
+- Pendaftaran relawan secara daring
+- Manajemen kegiatan oleh admin
+- Riwayat keterlibatan dan kegiatan selesai
+- Statistik dan pelaporan partisipasi di dashboard
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+| Komponen | Teknologi |
+|----------|-----------|
+| **Frontend** | HTML, CSS, JavaScript |
+| **Backend** | PHP (MVC custom, PSR-4 autoload) |
+| **Database** | MySQL |
+| **Server** | Apache/Nginx + PHP (XAMPP / local server) |
+
+---
+
+## 🧩 Struktur Halaman
+
+| No | Halaman | Route / Akses |
+|----|---------|----------------|
+| 1 | Home Page — daftar kegiatan sosial | `/` |
+| 2 | Tentang — visi, misi, dan fitur aplikasi | `/about` |
+| 3 | Login & Register | `/login`, `/register` |
+| 4 | Dashboard — statistik kegiatan dan relawan | `/dashboard` |
+| 5 | Manajemen Kegiatan | `/dashboard/kegiatan` |
+| 6 | Pendaftaran Relawan (detail kegiatan) | `/daftar-relawan?id={id}` |
+| 7 | Riwayat Kegiatan | `/dashboard/riwayat` |
+| 8 | Manajemen Relawan / Pengguna | `/dashboard/relawan`, `/dashboard/admin/users` |
+
+---
+
+## Struktur Proyek
+
+```
+isosial-main/
+├── database/
+│   ├── isosial_db.sql          # Dump database (kegiatan, users, relawan)
+├── public/
+│   ├── index.php               # Entry point aplikasi
+│   ├── css/
+│   └── assets/
+├── src/
+│   ├── Config/                 # Koneksi database
+│   ├── Controllers/
+│   ├── Models/
+│   ├── Routes/
+│   └── Views/
+└── vendor/                     # Composer autoload
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+---
 
-## Contributing
+## Instalasi & Menjalankan
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Prasyarat
 
-## Code of Conduct
+- PHP 8.x
+- MySQL / MariaDB
+- Composer
+- Web server (XAMPP direkomendasikan)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Langkah
 
-## Security Vulnerabilities
+1. **Clone atau salin** proyek ke folder web server (mis. `htdocs/isosial-main`).
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+2. **Install dependensi Composer:**
+   ```bash
+   composer install
+   ```
 
-## License
+3. **Buat database** `isosial_db` di phpMyAdmin.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
->>>>>>> da64c74 (Initial commit)
+4. **Import database:**
+   - Import file `database/isosial_db.sql`
+   - Opsional: jalankan `database/seed_relawan_kegiatan.sql` untuk data contoh relawan per kegiatan
+
+5. **Sesuaikan koneksi database** di `src/Config/Database.php` jika perlu:
+   ```php
+   $host = 'localhost';
+   $username = 'root';
+   $password = '';
+   $database = 'isosial_db';
+   ```
+
+6. **Arahkan document root** ke folder `public/`, atau akses:
+   ```
+   http://localhost/isosial-main/public/
+   ```
+
+7. **Login admin** (sesuai data di `isosial_users` setelah import SQL).
+
+---
+
+## Database
+
+| Tabel | Fungsi |
+|-------|--------|
+| `isosial_kegiatan` | Data kegiatan sosial (nama, lokasi, tanggal, gambar, kuota relawan) |
+| `isosial_users` | Akun admin dan relawan (siswa) |
+| `isosial_relawan_kegiatan` | Relasi pendaftaran relawan per kegiatan |
+
+---
+
+## 👨‍💻 Tim Pengembang
+
+**Kelompok 9 — SMK Kristen Immanuel Pontianak**
+
+- Bryan Geraldo Lim
+- Oliver Marvel Jonathan
+- Luis Fabian Lorenso
+
+---
+
+## 📍 Informasi Sekolah
+
+**SMK Kristen Immanuel**  
+Jl. Letnan Jendral Sutoyo, Parit Tokaya, Kec. Pontianak Sel., Kota Pontianak, Kalimantan Barat 78121  
+
+📞 +62 898 8890 298
+
+---
+
+## 🌟 Motto
+
+> *Ubah niat baik jadi aksi baik hari ini.*
