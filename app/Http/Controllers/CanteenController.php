@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-    use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 
-class KantinController extends Controller
+class CanteenController extends Controller
 {
     /**
      * Menampilkan halaman utama (Home Page) BiteGo
@@ -39,6 +39,6 @@ class KantinController extends Controller
             ],
         ]);
 
-        return view('kantin.index', compact('menus'));
-        }
+        return view('canteen.index', compact('menus'));
+    }
 }

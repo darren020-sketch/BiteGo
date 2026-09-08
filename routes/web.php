@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\KantinController;
+use App\Http\Controllers\CanteenController;
 
-// Halaman Utama Kantin
-Route::get('/', [KantinController::class, 'index'])->name('kantin.index');
-Route::get('/kantin', [KantinController::class, 'index'])->name('kantin.index.alt');
+// Halaman Utama Canteen
+Route::get('/', [CanteenController::class, 'index'])->name('canteen.index');
+Route::get('/canteen', [CanteenController::class, 'index'])->name('canteen.index.alt');

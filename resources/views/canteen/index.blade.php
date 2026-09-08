@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BiteGo - Kantin Sekolah</title>
+    <title>BiteGo - Canteen School</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome CDN -->
@@ -28,7 +28,7 @@
 
                 <!-- Navigation Links -->
                 <nav class="space-y-3">
-                    <a href="{{ route('kantin.index') }}" class="flex items-center gap-4 px-4 py-3 bg-[#00796B] text-white font-medium rounded-xl shadow-sm transition">
+                    <a href="{{ route('canteen.index') }}" class="flex items-center gap-4 px-4 py-3 bg-[#00796B] text-white font-medium rounded-xl shadow-sm transition">
                         <i class="fa-solid fa-house text-lg"></i>
                         <span>Home</span>
                     </a>
