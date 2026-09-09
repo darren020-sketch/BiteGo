@@ -17,7 +17,7 @@
             <div>
                 <!-- Brand / Logo -->
                 <div class="flex items-center gap-3 mb-10">
-                    <div class="w-10 h-10 bg-[#00Bfa5] rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-md">
+                    <div class="w-10 h-10 bg-[#00BFA5] rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-md">
                         <i class="fa-solid fa-utensils"></i>
                     </div>
                     <div>
@@ -32,7 +32,7 @@
                         <i class="fa-solid fa-house text-lg"></i>
                         <span>Home</span>
                     </a>
-                    <a href="#" class="flex items-center gap-4 px-4 py-3 text-emerald-100 hover:bg-[#005B4F] rounded-xl transition">
+                    <a href="{{ route('canteen.menu') }}" class="flex items-center gap-4 px-4 py-3 text-emerald-100 hover:bg-[#005B4F] rounded-xl transition">
                         <i class="fa-solid fa-utensils text-lg"></i>
                         <span>Menu</span>
                     </a>
@@ -75,7 +75,7 @@
                         di outlet pilihanmu.<br>
                         Tanpa antre tanpa tunggu lama.
                     </p>
-                    <a href="#menu-terlaris" class="inline-flex items-center gap-2 bg-[#00BFA5] hover:bg-[#00A892] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20 transition">
+                    <a href="{{ route('canteen.menu') }}" class="inline-flex items-center gap-2 bg-[#00BFA5] hover:bg-[#00A892] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20 transition">
                         Lihat Menu <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -89,25 +89,24 @@
             <div class="mb-8">
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-sm font-bold text-gray-800">Kategori</h3>
-                    <a href="#" class="text-xs font-semibold text-emerald-600 hover:underline flex items-center gap-1">
+                    <a href="{{ route('canteen.menu') }}" class="text-xs font-semibold text-emerald-600 hover:underline flex items-center gap-1">
                         Lihat Semua <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </a>
                 </div>
                 <div class="grid grid-cols-4 gap-4">
                     <!-- Kategori 1: Makanan Utama -->
-                    <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:border-emerald-300 transition">
+                    <a href="{{ route('canteen.menu', ['category' => 'makanan-utama']) }}" class="bg-white p-3.5 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between hover:border-emerald-300 transition">
                         <div class="flex items-center gap-3">
                             <div class="w-9 h-9 rounded-xl bg-gray-900 text-white flex items-center justify-center text-sm">
-                                <i class="fa-solid fa-[#00BFA5]"></i>
                                 <span class="text-xs">🍱</span>
                             </div>
                             <span class="text-xs font-bold text-gray-800">Makanan Utama</span>
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
-                    </div>
+                    </a>
 
                     <!-- Kategori 2: Snack -->
-                    <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:border-emerald-300 transition">
+                    <a href="{{ route('canteen.menu', ['category' => 'snack']) }}" class="bg-white p-3.5 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between hover:border-emerald-300 transition">
                         <div class="flex items-center gap-3">
                             <div class="w-9 h-9 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-sm">
                                 <i class="fa-solid fa-box"></i>
@@ -115,10 +114,10 @@
                             <span class="text-xs font-bold text-gray-800">Snack</span>
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
-                    </div>
+                    </a>
 
                     <!-- Kategori 3: Minuman -->
-                    <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:border-emerald-300 transition">
+                    <a href="{{ route('canteen.menu', ['category' => 'minuman']) }}" class="bg-white p-3.5 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between hover:border-emerald-300 transition">
                         <div class="flex items-center gap-3">
                             <div class="w-9 h-9 rounded-xl bg-amber-400 text-white flex items-center justify-center text-sm">
                                 <i class="fa-solid fa-glass-water"></i>
@@ -126,10 +125,10 @@
                             <span class="text-xs font-bold text-gray-800">Minuman</span>
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
-                    </div>
+                    </a>
 
                     <!-- Kategori 4: Dessert -->
-                    <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:border-emerald-300 transition">
+                    <a href="{{ route('canteen.menu', ['category' => 'dessert']) }}" class="bg-white p-3.5 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between hover:border-emerald-300 transition">
                         <div class="flex items-center gap-3">
                             <div class="w-9 h-9 rounded-xl bg-rose-400 text-white flex items-center justify-center text-sm">
                                 <i class="fa-solid fa-ice-cream"></i>
@@ -137,7 +136,7 @@
                             <span class="text-xs font-bold text-gray-800">Dessert</span>
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
-                    </div>
+                    </a>
                 </div>
             </div>
 
@@ -145,7 +144,7 @@
             <div id="menu-terlaris">
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-sm font-bold text-gray-800">Menu Terlaris</h3>
-                    <a href="#" class="text-xs font-semibold text-emerald-600 hover:underline flex items-center gap-1">
+                    <a href="{{ route('canteen.menu') }}" class="text-xs font-semibold text-emerald-600 hover:underline flex items-center gap-1">
                         Lihat Semua <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </a>
                 </div>
