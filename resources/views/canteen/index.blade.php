@@ -25,32 +25,38 @@
     </div>
 
     {{-- Hero --}}
-    <div class="relative flex flex-col-reverse md:flex-row items-center justify-between bg-mint-50 rounded-3xl p-8 mb-8 overflow-hidden">
-        <div class="absolute -right-20 -top-20 w-64 h-64 bg-sunshine-300/30 rounded-full blur-2xl"></div>
-        <div class="max-w-lg z-10">
-            <span class="inline-flex items-center gap-2 bg-white/70 text-emerald-700 text-[11px] font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-                <i class="fa-solid fa-bolt text-sunshine-500"></i> Pre-Order · Bebas Antre
+    <div class="relative overflow-hidden bg-mint-50 rounded-3xl px-7 py-8 lg:px-10 lg:py-10 mb-10">
+        <div class="relative z-10 max-w-2xl">
+            <span class="inline-flex items-center gap-2 bg-white/80 text-[#064E3B] text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
+                <i class="fa-solid fa-bolt text-[#FBBF24]"></i> Smart Canteen
             </span>
-            <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-3">
-                Pesan Sesukamu, <br>
-                <span class="text-mint-500">Ambil Sendiri.</span>
-            </h1>
-            <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-                Pilih stand kantin favoritmu, pesan menu & jam istirahat, lalu ambil lewat
-                <span class="font-bold text-gray-700">Express Pickup</span> dengan kode unik 4 digit.
+            <h2 class="text-3xl lg:text-4xl font-bold text-[#064E3B] leading-tight mb-4">
+                Pesan Sesukamu,<br>
+                Ambil Sendiri.
+            </h2>
+            <p class="text-gray-600 max-w-lg leading-relaxed mb-6">
+                Pilih makanan, pesan, dan ambil di outlet pilihanmu. Tanpa antre tanpa tunggu lama.
             </p>
             <div class="flex flex-wrap gap-3">
-                <a href="{{ route('canteen.menu') }}" class="inline-flex items-center gap-2 bg-mint-400 hover:bg-mint-500 text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20 transition">
-                    Lihat Menu <i class="fa-solid fa-arrow-right"></i>
+                <a href="{{ route('canteen.menu') }}" class="inline-flex items-center gap-2 bg-[#10B981] hover:bg-emerald-600 text-white font-semibold px-5 py-3 rounded-xl transition shadow-sm">
+                    LIHAT MENU <i class="fa-solid fa-arrow-right text-sm"></i>
                 </a>
-                <a href="#stand-kantin" class="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider text-emerald-700 border border-emerald-200 hover:bg-emerald-50 transition">
+                <a href="#stand-kantin" class="inline-flex items-center gap-2 bg-white text-[#064E3B] font-semibold px-5 py-3 rounded-xl border border-emerald-200 hover:bg-emerald-50 transition">
                     <i class="fa-solid fa-store"></i> Pilih Stand
                 </a>
             </div>
         </div>
-        <div class="relative w-56 md:w-80 h-56 md:h-80 rounded-full overflow-hidden shrink-0 border-4 border-white shadow-xl mb-6 md:mb-0">
-            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&auto=format&fit=crop" alt="Bitego Hero" class="w-full h-full object-cover">
+
+        {{-- Hero Image --}}
+        <div class="hidden md:block absolute right-8 lg:right-14 top-1/2 -translate-y-1/2">
+            <div class="w-48 h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-8 border-white/70 shadow-lg">
+                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=700&auto=format&fit=crop" alt="Makanan" class="w-full h-full object-cover">
+            </div>
         </div>
+
+        {{-- Decorative circles --}}
+        <div class="absolute -right-10 -bottom-16 w-44 h-44 rounded-full bg-[#10B981]/10"></div>
+        <div class="absolute right-32 -top-20 w-36 h-36 rounded-full bg-[#FBBF24]/10"></div>
     </div>
 
     {{-- Three-step ordering --}}
