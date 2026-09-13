@@ -1,9 +1,46 @@
 @import 'tailwindcss';
 
+@source '../../resources/views/**/*.blade.php';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-mint-50: #E8F5E9;
+    --color-mint-100: #D1EDE0;
+    --color-mint-200: #A3DBC5;
+    --color-mint-300: #6FC7A6;
+    --color-mint-400: #00BFA5;
+    --color-mint-500: #00A892;
+    --color-mint-600: #00897B;
+    --color-mint-700: #00796B;
+    --color-mint-800: #00695C;
+    --color-mint-900: #004D40;
+
+    --color-sunshine-100: #FEF9C3;
+    --color-sunshine-200: #FEF08A;
+    --color-sunshine-300: #FDE68A;
+    --color-sunshine-400: #FDE047;
+    --color-sunshine-500: #FACC15;
+    --color-sunshine-600: #CA8A04;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-mint-50);
+    background-image:
+        radial-gradient(circle at 10% 0%, rgba(0, 191, 165, 0.06), transparent 35%),
+        radial-gradient(circle at 95% 15%, rgba(253, 224, 71, 0.10), transparent 30%);
+    background-attachment: fixed;
+}
+
+img.meal-img {
+    background-color: var(--color-mint-100);
+    min-height: 8rem;
+    object-fit: cover;
 }

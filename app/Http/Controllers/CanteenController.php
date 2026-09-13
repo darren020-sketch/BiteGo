@@ -2,174 +2,64 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Menu;
+use App\Models\Stall;
 use Illuminate\Http\Request;
 
 class CanteenController extends Controller
 {
     /**
-     * Menampilkan halaman utama (Home Page) BiteGo
+     * Halaman utama BiteGo.
      */
     public function index()
     {
-        // Data dummy murni untuk kebutuhan tampilan front-end (tanpa DB/Model)
-        $menus = collect([
-            (object)[
-                'nama_menu' => 'Nasi Kuning',
-                'deskripsi' => 'Nasi gurih komplit khas kuning komplit disajikan dengan ayam goreng, tempe orak-arik, dan timun segar.',
-                'harga' => 12000,
-                'foto' => 'https://images.unsplash.com/photo-1626804475297-41608e074eb1?w=400&auto=format&fit=crop'
-            ],
-            (object)[
-                'nama_menu' => 'Ayam Geprek',
-                'deskripsi' => 'Ayam renyah dengan sambal pedas membara, disajikan bersama nasi putih hangat dan timun segar.',
-                'harga' => 17000,
-                'foto' => 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400&auto=format&fit=crop'
-            ],
-            (object)[
-                'nama_menu' => 'Nasi Goreng Telur',
-                'deskripsi' => 'Nasi goreng gurih dengan bumbu spesial, disajikan lengkap dengan telur mata sapi dan irisan timun.',
-                'harga' => 15000,
-                'foto' => 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&auto=format&fit=crop'
-            ],
-            (object)[
-                'nama_menu' => 'Mie Goreng Komplit',
-                'deskripsi' => 'Mie goreng gurih dengan bumbu racikan, telur mata sapi, sosis, dan timun segar.',
-                'harga' => 15000,
-                'foto' => 'https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&auto=format&fit=crop'
-            ],
-        ]);
+        $stalls = Stall::withCount('menus')->where('is_active', true)->get();
+        $categories = Category::orderBy('id')->get();
+        $popularMenus = Menu::with('stall')
+            ->where('is_available', true)
+            ->where('is_popular', true)
+            ->take(8)
+            ->get();
 
-        return view('canteen.index', compact('menus'));
+        return view('canteen.index', compact('stalls', 'categories', 'popularMenus'));
     }
 
     /**
-     * Menampilkan halaman daftar menu lengkap berdasarkan kategori
+     * Halaman daftar menu lengkap (dengan filter kategori & pencarian).
      */
     public function menu(Request $request)
     {
-        // Ambil kategori dari URL query, default ke 'makanan-utama'
-        $category = $request->query('category', 'makanan-utama');
+        $activeCategory = $request->query('category', 'makanan-utama');
 
-        $allMenus = collect([
-            (object)[
-                'nama_menu' => 'Nasi Kuning',
-                'deskripsi' => 'Nasi kuning gurih disajikan dengan ayam goreng, tempe orak-arik, dan timun.',
-                'harga' => 11000,
-                'foto' => 'https://images.unsplash.com/photo-1626804475297-41608e074eb1?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-            (object)[
-                'nama_menu' => 'Rice Bowl Dori Crispy',
-                'deskripsi' => 'Ikan dori goreng renyah yang disajikan di atas nasi hangat dengan saus mayo/keju dan mayo teriyaki.',
-                'harga' => 17000,
-                'foto' => 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-            (object)[
-                'nama_menu' => 'Mie Goreng Telur',
-                'deskripsi' => 'Mie goreng lezat disajikan dengan telur ceplok matang dan lalapan segar.',
-                'harga' => 13000,
-                'foto' => 'https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-            (object)[
-                'nama_menu' => 'Nasi Goreng Telur Ceplok',
-                'deskripsi' => 'Nasi goreng dengan bumbu spesial disajikan hangat dengan telur ceplok.',
-                'harga' => 15000,
-                'foto' => 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-            (object)[
-                'nama_menu' => 'Nasi Liwet Ayam Goreng',
-                'deskripsi' => 'Nasi liwet gurih beraroma rempah, disajikan dengan ayam goreng, tahu, tempe, lalapan, dan sambal terasi.',
-                'harga' => 22000,
-                'foto' => 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-            (object)[
-                'nama_menu' => 'Sate Ayam',
-                'deskripsi' => 'Sate ayam empuk yang dibakar dengan bumbu kacang gurih manis, disajikan dengan irisan bawang merah dan lontong.',
-                'harga' => 16000,
-                'foto' => 'https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-            (object)[
-                'nama_menu' => 'Ayam Geprek Sambal Ijo',
-                'deskripsi' => 'Ayam goreng tepung renyah dengan ulekan sambal hijau, disajikan hangat dengan nasi putih dan timun.',
-                'harga' => 17000,
-                'foto' => 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-            (object)[
-                'nama_menu' => 'Nasi Chicken Katsu',
-                'deskripsi' => 'Daging ayam fillet renyah dilapisi tepung panir dan saus gurih khas Jepang di atas nasi hangat.',
-                'harga' => 15000,
-                'foto' => 'https://images.unsplash.com/photo-1562967914-608f82629710?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-            (object)[
-                'nama_menu' => 'Paket Ayam Geprek',
-                'deskripsi' => 'Nasi hangat dengan fillet ayam goreng renyah dengan bumbu pedas gurih lengkap dengan lalapan.',
-                'harga' => 14000,
-                'foto' => 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-            (object)[
-                'nama_menu' => 'Paket Ayam Sambal Matah',
-                'deskripsi' => 'Ayam goreng renyah disiram dengan sambal matah khas Bali segar, nikmat disajikan hangat dengan nasi putih.',
-                'harga' => 18000,
-                'foto' => 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-            (object)[
-                'nama_menu' => 'Sate Taichan Nasi Jeruk',
-                'deskripsi' => 'Sate ayam taichan bakar polos dengan bumbu pedas, disajikan bersama nasi beraroma daun jeruk gurih dan sambal pedas.',
-                'harga' => 21000,
-                'foto' => 'https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-            (object)[
-                'nama_menu' => 'Mie Ayam Bakso',
-                'deskripsi' => 'Mie ayam lezat yang disajikan lengkap dengan bakso, taburan ayam bumbu, daun sawi hijau, dan kuah gurih.',
-                'harga' => 14000,
-                'foto' => 'https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-            (object)[
-                'nama_menu' => 'Nasi Telur Kecap',
-                'deskripsi' => 'Nasi hangat disajikan dengan telur dadar/ceplok gurih berminyak kecap manis gurih.',
-                'harga' => 12000,
-                'foto' => 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-            (object)[
-                'nama_menu' => 'Nasi Chicken Teriyaki',
-                'deskripsi' => 'Potongan daging ayam manis gurih disajikan di atas nasi hangat dengan taburan wijen dan irisan wortel.',
-                'harga' => 16000,
-                'foto' => 'https://images.unsplash.com/photo-1562967914-608f82629710?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-            (object)[
-                'nama_menu' => 'Nasi Bakar Ayam Suwir',
-                'deskripsi' => 'Nasi bakar wangi dengan isian ayam suwir pedas gurih kemangi, disajikan hangat lengkap dengan lalapan segar.',
-                'harga' => 15000,
-                'foto' => 'https://images.unsplash.com/photo-1626804475297-41608e074eb1?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-            (object)[
-                'nama_menu' => 'Bakso Urat',
-                'deskripsi' => 'Semangkuk bakso urat lezat dan gurih disajikan dengan mie, tahu, sayur sawi, kuah kaldu hangat, dan taburan seledri.',
-                'harga' => 16000,
-                'foto' => 'https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&auto=format&fit=crop',
-                'kategori' => 'makanan-utama'
-            ],
-        ]);
+        $categories = Category::orderBy('id')->get();
 
-        $menus = $allMenus->where('kategori', $category);
+        $query = Menu::with(['stall', 'category'])
+            ->where('is_available', true);
 
-        return view('canteen.menu', [
-            'menus' => $menus,
-            'activeCategory' => $category
-        ]);
+        if ($request->filled('q')) {
+            $search = $request->query('q');
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                    ->orWhereHas('stall', fn ($s) => $s->where('name', 'like', "%{$search}%"));
+            });
+        } else {
+            $query->whereHas('category', fn ($c) => $c->where('slug', $activeCategory));
+        }
+
+        $menus = $query->get();
+
+        return view('canteen.menu', compact('menus', 'categories', 'activeCategory'));
+    }
+
+    /**
+     * Halaman detail satu stand kantin beserta daftar menunya.
+     */
+    public function stall(Stall $stall)
+    {
+        $stall->load(['menus.category', 'owner']);
+        $menus = $stall->menus()->where('is_available', true)->get();
+
+        return view('canteen.stall', compact('stall', 'menus'));
     }
 }
